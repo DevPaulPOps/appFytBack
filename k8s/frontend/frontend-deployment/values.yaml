@@ -1,0 +1,4 @@
+frontend:
+  labelValue: frontend
+  image: paulperigault/frontendfytapp:latest
+  port: 80

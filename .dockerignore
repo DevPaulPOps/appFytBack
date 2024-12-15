@@ -1,0 +1,9 @@
+.*
+node_modules/
+*.log
+*.tmp
+build/
+*.dev
+*.config
+package-lock.json
+.env

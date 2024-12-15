@@ -1,0 +1,4 @@
+backend:
+  labelValue: backend
+  image: paulperigault/backendfytapp:latest
+  port: 3000

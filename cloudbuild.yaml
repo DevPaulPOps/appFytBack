@@ -1,0 +1,61 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['ls', '-la', '.'] # test
+
+  # install node package
+  - name: 'node'
+    entrypoint: 'npm'
+    args: [ 'install' ]
+
+  # Build Node App
+  - name: 'node'
+    entrypoint: 'npm'
+    args: [ 'run', 'build' ]
+
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'us-central1-docker.pkg.dev/braided-triode-414110/quickstart-docker-repo/backendfytapp-image',
+        '-f',
+        'Dockerfile',
+        '.',
+      ]
+
+  # Docker Push to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/braided-triode-414110/quickstart-docker-repo/backendfytapp-image']
+
+  - name: 'hashicorp/terraform'
+    args: ['init']
+    env: ['GOOGLE_CREDENTIALS=/workspace/account.json']
+
+  - name: 'hashicorp/terraform'
+    args: ['apply', '-auto-approve']
+    env: ['GOOGLE_CREDENTIALS=/workspace/account.json']
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/braided-triode-414110/secrets/accountCredentials/versions/1
+      env: 'GOOGLE_CREDENTIALS'
+
+  # Terraform Output
+  - name: 'hashicorp/terraform'
+    args: ['output']
+
+    # Deploy to Cloud Run
+  #- name: 'gcr.io/cloud-builders/gcloud'
+  #  args:
+  #    [
+  #      'run',
+  #      'deploy',
+  #      'cloudrunservice',
+  #      '--image',
+  #      'us-central1-docker.pkg.dev/braided-triode-414110/quickstart-docker-repo/backendfytapp-image',
+  #      '--region',
+  #      'us-central1',
+  #      '--platform',
+  #      'managed',
+  #    ]

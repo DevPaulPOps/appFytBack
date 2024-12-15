@@ -1,0 +1,4 @@
+apiVersion: v1
+name: frontend
+description: A Helm Chart for the front-end deployment.
+version: 0.1.0

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: mongodb-Deployment
+description: A Helm Chart for the MongoDB Deployment.
+version: 0.1.0

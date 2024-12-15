@@ -1,0 +1,6 @@
+replicas: 1
+
+mongo:
+  image:
+    repository: paulperigault/mongodb:latest
+  port: 27017

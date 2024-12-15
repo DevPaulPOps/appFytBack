@@ -1,0 +1,4 @@
+apiVersion: v1
+name: backend-deployment
+description: A Helm Chart for the backend deployment.
+version: 0.1.0

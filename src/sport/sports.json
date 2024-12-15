@@ -1,0 +1,24 @@
+{
+	"Sports de combat": [
+		"Aïkido",
+		"Boxe anglaise",
+		"Boxe française",
+		"Boxe thaï",
+		"Capoeira",
+		"Jiu-jitsu",
+		"Jiu-jitsu brésilien",
+		"Judo",
+		"Karaté",
+		"Kick-boxing",
+		"MMA",
+		"Taekwondo"
+	],
+	"Sports d'endurance": ["Athlétisme", "Course à pied", "Cyclisme", "Natation", "Randonnée", "Running"],
+	"Sports de balle et de ballon": ["Basketball", "Football", "Football américain", "Handball", "Rugby", "Volley-ball"],
+	"Sports de raquette": ["Badminton", "Ping-pong", "Tennis"],
+	"Activités de fitness et de danse": ["CrossFit", "Danse", "Gymnastique", "Musculation", "Pilates", "Yoga", "Zumba"],
+	"Sports de précision": ["Pétanque", "Golf"],
+	"Sports aquatiques": ["Natation", "Surf"],
+	"Sports de glisse": ["Patinage", "Ski", "Snowboard", "Skateboard"],
+	"Autres activités": ["Accrobranche", "Escalade", "Parkour"]
+}

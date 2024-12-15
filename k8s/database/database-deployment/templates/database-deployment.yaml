@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+spec:
+  replicas: { { .Values.replicas } }
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - name: mongo
+          image: { { .Values.mongo.image.repository } }
+          ports:
+            - containerPort: { { .Values.mongo.port } }

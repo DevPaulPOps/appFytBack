@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: { { .Values.backend.labelValue } }
+  template:
+    metadata:
+      labels:
+        app: { { .Values.backend.labelValue } }
+    spec:
+      containers:
+        - name: backend
+          image: { { .Values.backend.image } }
+          ports:
+            - containerPort: { { .Values.backend.port } }
